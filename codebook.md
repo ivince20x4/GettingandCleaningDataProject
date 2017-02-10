@@ -1,15 +1,15 @@
 #Code Book
 
-#Raw data collection
+##Raw data collection
 
-#Collection
+###Collection
 
 Raw data are obtained from UCI Machine Learning repository. In particular we used the Human Activity Recognition Using Smartphones Data Set, that was used by the original collectors to conduct experiments exploiting Support Vector Machine (SVM).
 
 The data set was built from experiments carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking upstairs, walking downstairs, sitting, standing, laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually.
 The obtained data set has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
 
-#Signals
+##Signals
 
 The signals were sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window at 50 Hz). From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
@@ -33,27 +33,27 @@ bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of e
 angle(): Angle between some vectors.
 No unit of measures is reported as all features were normalized and bounded within [-1,1].
 
-#Data transformation
+##Data transformation
 
 The raw data sets are processed with run_analisys.R script to create a tidy data set.
 
-#Merge training and test sets
+##Merge training and test sets
 
 Test and training data (X_train.txt, X_test.txt), subject ids (subject_train.txt, subject_test.txt) and activity ids (y_train.txt, y_test.txt) are merged to obtain a single data set. Variables are labelled with the names assigned by original collectors (features.txt).
 
-#Extract mean and standard deviation variables
+##Extract mean and standard deviation variables
 
 From the merged data set is extracted and intermediate data set with only the values of estimated mean (variables with labels that contain "mean") and standard deviation (variables with labels that contain "std").
 
-#Use descriptive activity names
+##Use descriptive activity names
 
 A new column is added to intermediate data set with the activity description. Activity id column is used to look up descriptions in activity_labels.txt.
 
-#Label variables appropriately
+##Label variables appropriately
 
 Labels given from the original collectors were changed: to obtain valid R names without parentheses, dashes and commas to obtain more descriptive labels
 
-#Create a tidy data set
+##Create a tidy data set
 
 From the intermediate data set is created a final tidy data set where numeric variables are averaged for each activity and each subject.
 
@@ -77,4 +77,4 @@ Body Angular Speed Magnitude	TimeDomain.BodyAngularSpeedMagnitude	FrequencyDomai
 Body Angular Acceleration Magnitude	TimeDomain.BodyAngularAccelerationMagnitude	FrequencyDomain.BodyAngularAccelerationMagnitude
 
 For variables derived from mean and standard deviation estimation, the previous labels are augmented with the terms "Mean" or "StandardDeviation".
-The data set is written to the file "DatasetHumanActivityRecognitionUsingSmartphones.txt".
+The data set is written to the file `DatasetHumanActivityRecognitionUsingSmartphones.txt`.
